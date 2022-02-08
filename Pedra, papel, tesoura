@@ -1,0 +1,58 @@
+from random import choice
+
+comp_ponto = 0
+player_ponto = 0
+
+
+def empateloop():
+    global player
+    global comp
+    while player == comp:
+        print('Um empate?! Impossivel!')
+        comp = choice(lista)
+        player = str(input('Pedra, Papel ou Tesoura? '))
+        player = player.strip()
+        player = player.capitalize()
+
+
+def game():
+    global comp_ponto
+    global player_ponto
+    if player == comp:
+        empateloop()
+    if player == 'Pedra' and comp == 'Papel':
+        print('Ganhei de voce!!')
+        comp_ponto += 1
+    elif player == 'Papel' and comp == 'Tesoura':
+        print('Ganhei de voce!!')
+        comp_ponto += 1
+    elif player == 'Tesoura' and comp == 'Pedra':
+        print('Ganhei de voce!!')
+        comp_ponto += 1
+    elif player == 'Pedra' and comp == 'Tesoura':
+        print('Eu perdi?! Sorte de iniciante.')
+        player_ponto += 1
+    elif player == 'Papel' and comp == 'Pedra':
+        print('Impossivel! Como posso ter perdido para voce!')
+        player_ponto += 1
+    elif player == 'Tesoura' and comp == 'Papel':
+        print('Eu perdi?! nao pode ser!!')
+        player_ponto += 1
+    else:
+        print('Escreve uma opcao que exista por favor')
+
+
+menu = int(input('1 - Para jogar pedra, papel e tesoura\n0 - Para sair.\n'))
+while menu == 1:
+    lista = ['Pedra', 'Papel', 'Tesoura']
+    comp = choice(lista)
+    player = str(input('Pedra, Papel ou Tesoura? '))
+    player = player.strip()
+    player = player.capitalize()
+    game()
+    score = int(input('1 - Checar pontuacao\n0 - Ir para o menu\n'))
+    if score == 1:
+        print('Computador - {}\nPlayer - {}\n'.format(comp_ponto, player_ponto))
+    menu = int(input('1 - Para jogar pedra, papel e tesoura\n0 - Para sair.\n'))
+
+print('Obrigado por jogar comigo')
