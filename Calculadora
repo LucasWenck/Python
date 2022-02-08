@@ -1,0 +1,101 @@
+from decimal import Decimal
+
+def main():
+    print('CALCULADORA DECENTIZINHA')
+    i = Decimal(input('1 - Se quiser fazer um calculo, 0 - Se quiser sair\n'))
+    while i == 1:
+        c = Decimal(input('Informe o tipo da conta desejada, 1-Soma, 2-Subtracao, 3-Multiplicacao, 4-Divisao, 5-Potencia,\n '
+                  '6-Raiz, 7-Divisao inteira, 8-Resto de divisao, 9-Se quiser fazer um calculo com o '
+                  'resultado obtido na ultima operacao\n'))
+        if c == 1:
+            a = Decimal(input('Informe o numero 1: '))
+            b = Decimal(input('Informe o numero 2: '))
+            d = a + b
+            print('{} + {} é igual a: {}'.format(a, b, a + b))
+        elif c == 2:
+            a = Decimal(input('Informe o numero 1: '))
+            b = Decimal(input('Informe o numero 2: '))
+            d = a - b
+            print('{} - {} é igual a: {}'.format(a, b, a - b))
+        elif c == 3:
+            a = Decimal(input('Informe o numero 1: '))
+            b = Decimal(input('Informe o numero 2: '))
+            d = a * b
+            print('{} x {} é igual a: {}'.format(a, b, a * b))
+        elif c == 4:
+            a = Decimal(input('Informe o numero 1: '))
+            b = Decimal(input('Informe o numero 2: '))
+            d = a / b
+            print('{} / {} é igual a: {}'.format(a, b, a / b))
+        elif c == 5:
+            a = Decimal(input('Informe o numero 1: '))
+            b = Decimal(input('Informe o numero 2: '))
+            d = a ** b
+            print('{} ** {} é igual a: {}'.format(a, b, a ** b))
+        elif c == 6:
+            a = Decimal(input('Informe o numero que deseja ter a raiz encontrada: '))
+            b = Decimal(input('Informe qual raiz voce deseja(quadrada, cubica, etc.): '))
+            d = a ** (1 / b)
+            print('A raiz de {} é {}'.format(a, d))
+        elif c == 7:
+            a = Decimal(input('Informe o numero 1: '))
+            b = Decimal(input('Informe o numero 2: '))
+            d = a // b
+            print('A divisao inteira de {} / {} é igual a {}'.format(a, b, a // b))
+        elif c == 8:
+            a = Decimal(input('Informe o numero 1: '))
+            b = Decimal(input('Informe o numero 2: '))
+            d = a % b
+            print('O resto da divisao {} / {} é igual a {}'.format(a, b, a % b))
+        elif c == 9:
+            try:
+                d
+            except NameError:
+                print('Nao existe resultado previo')
+                break
+            x = Decimal(input('Informe o tipo da conta desejada, 1-Soma, 2-Subtracao, 3-Multiplicacao, 4-Divisao, '
+                            '5-Potencia,\n 6-Raiz, 7-Divisao inteira, 8-Resto de divisao\n'))
+            if x == 1:
+                a = Decimal(input('Quanto voce deseja somar ao numero {}? '.format(d)))
+                d = a + d
+                print('O resultado da soma é igual a {}'.format(d))
+            elif x == 2:
+                a = Decimal(input('Quanto voce deseja subtrair do numero {}? '.format(d)))
+                d = d - a
+                print('O resultado da subtraçao é igual a {}'.format(d))
+            elif x == 3:
+                a = Decimal(input('Por quanto voce deseja multiplicar o numero {}? '.format(d)))
+                d = d * a
+                print('O resultado da multiplicacao é igual a {}'.format(d))
+            elif x == 4:
+                a = Decimal(input('Por qual numero voce deseja dividir o numero {}? '.format(d)))
+                d = d / a
+                print('O resultado da divisao é igual a {}'.format(d))
+            elif x == 5:
+                a = Decimal(input('Qual a potencia que vc quer do numero {}? '.format(d)))
+                d = d ** a
+                print('A potencia resultou no numero {}'.format(d))
+            elif x == 6:
+                a = Decimal(input('Qual a raiz que voce quer para o numero {}? '.format(d)))
+                d = d ** (1 / a)
+                print('A raiz encontrada foi {}'.format(d))
+            elif x == 7:
+                a = Decimal(
+                    input('Por qual numero voce quer dividir o numero {} e receber o resultado inteiro? '.format(d)))
+                d = d // a
+                print('O resultado inteiro dessa divisao é igual a {}'.format(d))
+            elif x == 8:
+                a = Decimal(input('Por qual numero voce quer dividir o resultado {} para saber o resto? '.format(d)))
+                d = d % a
+                print('O resto dessa divisao é igual a {}'.format(d))
+            else:
+                print('Error, numero invalido colocado')
+        else:
+            print('Error, numero invalido colocado')
+        i = Decimal(input('1 - Se quiser fazer outro calculo, ou digite qualquer outro numero para sair\n'))
+        if i != 1:
+            break
+    print('Obrigado por usar nossa calculadora, tenha um bom dia!')
+
+if __name__ == '__main__':
+    main()
