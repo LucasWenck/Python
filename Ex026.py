@@ -1,0 +1,6 @@
+frase = input('Escreva uma frase qualquer: ')
+frase = frase.strip()
+frase = frase.upper()
+print(frase.count('A'))
+print(frase.find('A'))
+print(frase.rfind('A'))
